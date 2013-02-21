@@ -11,7 +11,7 @@ my $NUMBER;
 my $ug = new Data::UUID;
 my $idleValue = 100;
 
-my $VM_OUTPUT = "/home/ubuntu/libvirt/logs";
+my $VM_OUTPUT = "/home/ubuntu/libvirt/logs/logfile";
 my $VM_HDA = "/home/ubuntu/libvirt/serial_print_char_then_idle.hda";
 
 getopts("$opt_string", \%opt ) or usage();
@@ -21,7 +21,6 @@ $NUMBER = $opt{'n'};
 
 my $uri = "qemu:///system"; my $vmm; eval {
 $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
-        print STDERR "Unable to open connection to $uri" . $@->message . "\n";
         print "Unable to open connection to $uri" . $@->message . "\n";
 }
 
@@ -76,7 +75,7 @@ for (my $i=1; $i<=$NUMBER; $i++){
 		my $dom = $vmm->create_domain($xml);	# Create VM based on XML data
 	};
 
-	sleep(5);					# Sleep for a while after creating the VM
+	sleep(8);					# Sleep for a while after creating the VM
 	
 	# Check written file
 	open FILE, "$VM_OUTPUT$i.log";			# Open the file written by VM's serial output
@@ -85,10 +84,16 @@ for (my $i=1; $i<=$NUMBER; $i++){
 
 	# Check system status
 	system("vmstat 5 2 > vmstat.tmp");		# Run vmstat over 10 seconds, while giving two sets of samples and write to file
+
+	sleep(3);					# Short sleep before we open the file
+
 	open(VMSTAT, "vmstat.tmp");			# Open the newly written file
 	<VMSTAT>; <VMSTAT>; <VMSTAT>;			# Skip some header lines, and the first line showing data from boot
 	my $vmstat = <VMSTAT>;				# Store values
 	my @values = split(/ +/,$vmstat);		# Split values into an array
+	close (VMSTAT);	
+#added
+#	my $vmstat = "unavailable";
 
 	# Print results to file
 	open (UUID, '>>uuid.lst');			# Open uuid.lst and append new data
@@ -102,6 +107,9 @@ for (my $i=1; $i<=$NUMBER; $i++){
 
 	# CPU idle value
 	$idleValue = $values[15];			# Retrieve the CPU idle value
+
+#added
+#	$idleValue = 100;
 
 	if ($idleValue == 0){				# If the CPU idle time is 0, stop
 		die;
