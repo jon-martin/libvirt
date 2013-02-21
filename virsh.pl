@@ -11,8 +11,8 @@ my $NUMBER;
 my $ug = new Data::UUID;
 my $idleValue = 100;
 
-my $VM_OUTPUT = "/home/jon/output/virsh";
-my $VM_HDA = "/home/jon/Documents/scripts/serial_print_char_then_idle.hda";
+my $VM_OUTPUT = "/home/jon/Documents/libvirt/libvirt";
+my $VM_HDA = "/home/jon/Documents/libvirt/libvirt/serial_print_char_then_idle.hda";
 
 getopts("$opt_string", \%opt ) or usage();
 usage() if $opt{h};
@@ -32,7 +32,7 @@ for (my $i=1; $i<=$NUMBER; $i++){
 <domain type='qemu' id='5'>
   <name>microMachine-$i</name>
   <uuid>$uuid</uuid>
-  <memory>66560</memory>
+  <memory>16384</memory>
   <currentMemory>1</currentMemory>
   <vcpu>1</vcpu>
   <os>
