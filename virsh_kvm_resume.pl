@@ -24,7 +24,7 @@ $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
         print "Unable to open connection to $uri" . $@->message . "\n";
 }
 
-for (my $i=1; $i<=$NUMBER; $i++){
+for (my $i=1025; $i<=$NUMBER; $i++){
 	my $uuid = $ug->to_string($ug->create());	# Create UUID
 
 	my $xml = " 
@@ -75,7 +75,7 @@ for (my $i=1; $i<=$NUMBER; $i++){
 		my $dom = $vmm->create_domain($xml);	# Create VM based on XML data
 	};
 
-	sleep(8);					# Sleep for a while after creating the VM
+	sleep(10);					# Sleep for a while after creating the VM
 	
 	# Check written file
 	open FILE, "$VM_OUTPUT$i.log";			# Open the file written by VM's serial output
@@ -111,9 +111,9 @@ for (my $i=1; $i<=$NUMBER; $i++){
 #added
 #	$idleValue = 100;
 
-	if ($idleValue == 0){				# If the CPU idle time is 0, stop
-		die;
-	}
+#	if ($idleValue == 0){				# If the CPU idle time is 0, stop
+#		die;
+#	}
 }
 
 sub usage(){
