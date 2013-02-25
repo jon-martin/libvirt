@@ -5,9 +5,10 @@ use Sys::Virt;
 use Data::UUID;
 use Getopt::Std;
 
-my $opt_string = 'hn:';
+my $opt_string = 'hs:n:';
 my %opt;
-my $NUMBER;
+my $start;
+my $end;
 my $ug = new Data::UUID;
 my $idleValue = 100;
 
@@ -15,16 +16,17 @@ my $VM_OUTPUT = "/home/ubuntu/libvirt/logs/logfile";
 my $VM_HDA = "/home/ubuntu/libvirt/serial_print_char_then_idle.hda";
 
 getopts("$opt_string", \%opt ) or usage();
-usage() if $opt{h};
 
-$NUMBER = $opt{'n'};
+usage() if $opt{h};
+$start = $opt{'s'};
+$end = $opt{'n'};
 
 my $uri = "qemu:///system"; my $vmm; eval {
 $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
         print "Unable to open connection to $uri" . $@->message . "\n";
 }
 
-for (my $i=1025; $i<=$NUMBER; $i++){
+for (my $i=$start; $i<=$end; $i++){
 	my $uuid = $ug->to_string($ug->create());	# Create UUID
 
 	my $xml = " 
@@ -85,20 +87,23 @@ for (my $i=1025; $i<=$NUMBER; $i++){
 	# Check system status
 	system("vmstat 5 2 > vmstat.tmp");		# Run vmstat over 10 seconds, while giving two sets of samples and write to file
 
-	sleep(3);					# Short sleep before we open the file
+	sleep(2);					# Short sleep before we open the file
 
 	open(VMSTAT, "vmstat.tmp");			# Open the newly written file
 	<VMSTAT>; <VMSTAT>; <VMSTAT>;			# Skip some header lines, and the first line showing data from boot
 	my $vmstat = <VMSTAT>;				# Store values
+	chomp($vmstat);					# Format the vmstat data
+	$vmstat =~ s/ +/ /g;
 	my @values = split(/ +/,$vmstat);		# Split values into an array
 	close (VMSTAT);	
-#added
-#	my $vmstat = "unavailable";
+
+	# Retrieve time
+	my $time = time;
 
 	# Print results to file
 	open (UUID, '>>uuid.lst');			# Open uuid.lst and append new data
-	print "$i $uuid $check $vmstat";		# Print to screen
-	print UUID "$i $uuid $check $vmstat";		# Print to file
+	print "$i $time $uuid $check $vmstat\n";	# Print to screen
+	print UUID "$i $time $uuid $check $vmstat\n";	# Print to file
 	if ($@) {					# Print extra if error occurs
 		print "Error while creating domain:" . $@->message . "\n";
 		print UUID "Error while creating domain:" . $@->message . "\n";
@@ -106,10 +111,7 @@ for (my $i=1025; $i<=$NUMBER; $i++){
 	close (UUID);					# Close uuid.lst
 
 	# CPU idle value
-	$idleValue = $values[15];			# Retrieve the CPU idle value
-
-#added
-#	$idleValue = 100;
+#	$idleValue = $values[15];			# Retrieve the CPU idle value
 
 #	if ($idleValue == 0){				# If the CPU idle time is 0, stop
 #		die;
