@@ -5,21 +5,24 @@ use Sys::Virt;
 use Data::UUID;
 use Getopt::Std;
 
-my $opt_string = 'hs:n:';
+my $opt_string = 'hs:n:f:';
 my %opt;
 my $start;
 my $end;
+my $file;
 my $ug = new Data::UUID;
 my $idleValue = 100;
+my $serial_out;
 
-my $VM_OUTPUT = "/home/jon/Documents/libvirt/libvirt/logs/logfile";
-my $VM_HDA = "/home/jon/Documents/libvirt/libvirt/serial_print_char_then_idle.hda";
+my $VM_OUTPUT = "/home/ubuntu/libvirt/logs/logfile";
+my $VM_HDA = "/home/ubuntu/libvirt/true_sleep.hda";
 
 getopts("$opt_string", \%opt ) or usage();
 
 usage() if $opt{h};
 $start = $opt{'s'};
 $end = $opt{'n'};
+$file = $opt{'f'};
 
 my $uri = "qemu:///system"; my $vmm; eval {
 $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
@@ -28,9 +31,21 @@ $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
 
 for (my $i=$start; $i<=$end; $i++){
 	my $uuid = $ug->to_string($ug->create());	# Create UUID
+	
+	my $modulo = $i%5;				# Find every fifth
+
+	if ($modulo == 0){				# Only set serial port for every 5th VM
+		$serial_out = 
+	"<serial type='file'>
+		<source path='$VM_OUTPUT$i.log'/>
+		<target port='1'/>
+	</serial>";
+	} else {
+		$serial_out = "";
+	}
 
 	my $xml = " 
-<domain type='qemu' id='1'>
+<domain type='kvm' id='1'>
   <name>microMachine-$i</name>
   <uuid>$uuid</uuid>
   <memory>16384</memory>
@@ -50,10 +65,7 @@ for (my $i=$start; $i<=$end; $i++){
   <on_reboot>restart</on_reboot>
   <on_crash>restart</on_crash>
   <devices>
-    <emulator>/usr/bin/qemu-system-x86_64</emulator>
-    <video>
-      <model type='cirrus' vram='9216' heads='1'/>
-    </video>
+    <emulator>/usr/bin/kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw'/>
       <source file='$VM_HDA'/>
@@ -66,10 +78,7 @@ for (my $i=$start; $i<=$end; $i++){
     <memballoon model='virtio'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
     </memballoon>
-    <serial type='file'>
-      <source path='$VM_OUTPUT$i.log'/>
-      <target port='1'/>
-    </serial>
+	$serial_out
   </devices> 
 </domain> "; 
 
@@ -79,10 +88,12 @@ for (my $i=$start; $i<=$end; $i++){
 
 	sleep(10);					# Sleep for a while after creating the VM
 	
-	# Check written file
-	open FILE, "$VM_OUTPUT$i.log";			# Open the file written by VM's serial output
-	my $check =  <FILE>;				# Store the first line written by VM
-	close FILE;					# Close file
+	my $check;
+	if ($modulo == 0){				# Check written file
+		open FILE, "$VM_OUTPUT$i.log";		# Open the file written by VM's serial output
+		$check =  <FILE>;			# Store the first line written by VM
+		close FILE;				# Close file
+	}
 
 	# Check system status
 	system("vmstat 5 2 > vmstat.tmp");		# Run vmstat over 10 seconds, while giving two sets of samples and write to file
@@ -101,7 +112,7 @@ for (my $i=$start; $i<=$end; $i++){
 	my $time = time;
 
 	# Print results to file
-	open (UUID, '>>uuid.lst');			# Open uuid.lst and append new data
+	open (UUID, ">>$file");			# Open uuid.lst and append new data
 	print "$i $time $uuid $check $vmstat\n";	# Print to screen
 	print UUID "$i $time $uuid $check $vmstat\n";	# Print to file
 	if ($@) {					# Print extra if error occurs
@@ -112,7 +123,7 @@ for (my $i=$start; $i<=$end; $i++){
 
 	# CPU idle value
 #	$idleValue = $values[15];			# Retrieve the CPU idle value
-
+#
 #	if ($idleValue == 0){				# If the CPU idle time is 0, stop
 #		die;
 #	}
