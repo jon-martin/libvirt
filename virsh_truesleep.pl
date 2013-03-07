@@ -32,17 +32,6 @@ $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
 for (my $i=$start; $i<=$end; $i++){
 	my $uuid = $ug->to_string($ug->create());	# Create UUID
 	
-	my $modulo = $i%5;				# Find every fifth
-
-	if ($modulo == 0){				# Only set serial port for every 5th VM
-		$serial_out = 
-	"<serial type='file'>
-		<source path='$VM_OUTPUT$i.log'/>
-		<target port='1'/>
-	</serial>";
-	} else {
-		$serial_out = "";
-	}
 
 	my $xml = " 
 <domain type='kvm' id='1'>
@@ -75,10 +64,10 @@ for (my $i=$start; $i<=$end; $i++){
     <controller type='ide' index='0'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
     </controller>
-    <memballoon model='virtio'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
-    </memballoon>
-	$serial_out
+    <serial type='file'>
+      <source path='$VM_OUTPUT$i.log'/>
+      <target port='1'/>
+    </serial>
   </devices> 
 </domain> "; 
 
@@ -86,19 +75,16 @@ for (my $i=$start; $i<=$end; $i++){
 		my $dom = $vmm->create_domain($xml);	# Create VM based on XML data
 	};
 
-	sleep(10);					# Sleep for a while after creating the VM
+	sleep(8);					# Sleep for a while after creating the VM
 	
-	my $check;
-	if ($modulo == 0){				# Check written file
-		open FILE, "$VM_OUTPUT$i.log";		# Open the file written by VM's serial output
-		$check =  <FILE>;			# Store the first line written by VM
-		close FILE;				# Close file
-	}
+	open FILE, "$VM_OUTPUT$i.log";			# Open the file written by VM's serial output
+	my $check =  <FILE>;				# Store the first line written by VM
+	close FILE;					# Close file
 
 	# Check system status
 	system("vmstat 5 2 > vmstat.tmp");		# Run vmstat over 10 seconds, while giving two sets of samples and write to file
 
-	sleep(2);					# Short sleep before we open the file
+	sleep(1);					# Short sleep before we open the file
 
 	open(VMSTAT, "vmstat.tmp");			# Open the newly written file
 	<VMSTAT>; <VMSTAT>; <VMSTAT>;			# Skip some header lines, and the first line showing data from boot

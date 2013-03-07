@@ -21,7 +21,7 @@
     <emulator>/usr/bin/kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw'/>
-      <source file='/home/ubuntu/libvirt/serial_print_char_then_idle.hda' />
+      <source file='/home/ubuntu/libvirt/serial_print.hda' />
       <target dev='hda' bus='ide'/>
       <address type='drive' controller='0' bus='0' unit='0'/>
     </disk>
