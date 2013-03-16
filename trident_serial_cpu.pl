@@ -31,8 +31,8 @@ $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
 
 for (my $i=$start; $i<=$end; $i++){
 	my $uuid = $ug->to_string($ug->create());	# Create UUID
-#	my $modulo = $i%10;	
-	my $modulo = 0;
+	my $modulo = $i%48;	
+#	my $modulo = 0;
 
 	my $xml = " 
 <domain type='kvm' id='1'>
