@@ -13,7 +13,7 @@ usage() if $opt{h};
 $NUMBER = $opt{'n'};
 
 for (my $i; $i<$NUMBER; $i++){
-	system("screen -d -m -S mm$i qemu-system-x86_64 -m 16 -hda mm1.hda -curses");	# Fix this line to create VM and write output somewhere
+	system("nohup qemu-system-x86_64 -m 16 -hda serial_print.hda -nographic > file$i.dat &");	# Fix this line to create VM and write output somewhere
 	print "$i\n";
 }
 
