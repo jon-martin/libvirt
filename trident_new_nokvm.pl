@@ -31,8 +31,7 @@ $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
 
 for (my $i=$start; $i<=$end; $i++){
 	my $uuid = $ug->to_string($ug->create());	# Create UUID
-	my $modulo = $i%48;	
-#	my $modulo = 0;
+	
 
 	my $xml = " 
 <domain type='qemu' id='1'>
@@ -41,9 +40,6 @@ for (my $i=$start; $i<=$end; $i++){
   <memory>16384</memory>
   <currentMemory>1</currentMemory>
   <vcpu>1</vcpu>
-  <cputune>
-    <vcpupin vcpu='0' cpuset='$modulo'/>
-  </cputune>
   <os>
     <type arch='i686' machine='pc-1.0'>hvm</type>
     <boot dev='hd'/>
@@ -79,14 +75,16 @@ for (my $i=$start; $i<=$end; $i++){
 		my $dom = $vmm->create_domain($xml);	# Create VM based on XML data
 	};
 
-	sleep(8);					# Sleep for a while after creating the VM
-	
-	open FILE, "$VM_OUTPUT$i.log";			# Open the file written by VM's serial output
-	my $check =  <FILE>;				# Store the first line written by VM
-	close FILE;					# Close file
+	my $check ="";
+        while ($check !~ /!/){
+                sleep(1);                                       # Sleep for a while after creating $
+                open FILE, "$VM_OUTPUT$i.log";                  # Open the file written by VM's ser$
+                $check = <FILE>;                                # Store the first line written by VM
+                close FILE;                                     # Close file
+        }
 
 	# Check system status
-	system("vmstat 5 2 > vmstat.tmp");		# Run vmstat over 10 seconds, while giving two sets of samples and write to file
+	system("vmstat 3 2 > vmstat.tmp");		# Run vmstat over 10 seconds, while giving two sets of samples and write to file
 
 	sleep(1);					# Short sleep before we open the file
 
@@ -95,6 +93,7 @@ for (my $i=$start; $i<=$end; $i++){
 	my $vmstat = <VMSTAT>;				# Store values
 	chomp($vmstat);					# Format the vmstat data
 	$vmstat =~ s/ +/ /g;
+	$vmstat = trim($vmstat);
 	my @values = split(/ +/,$vmstat);		# Split values into an array
 	close (VMSTAT);	
 
@@ -117,6 +116,14 @@ for (my $i=$start; $i<=$end; $i++){
 #	if ($idleValue == 0){				# If the CPU idle time is 0, stop
 #		die;
 #	}
+}
+
+sub trim($)
+{
+	my $string = shift;
+	$string =~ s/^\s+//;
+	$string =~ s/\s+$//;
+	return $string;
 }
 
 sub usage(){
