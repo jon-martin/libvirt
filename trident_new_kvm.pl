@@ -34,7 +34,7 @@ for (my $i=$start; $i<=$end; $i++){
 	
 
 	my $xml = " 
-<domain type='qemu' id='1'>
+<domain type='kvm' id='1'>
   <name>microMachine-$i</name>
   <uuid>$uuid</uuid>
   <memory>16384</memory>
@@ -54,7 +54,7 @@ for (my $i=$start; $i<=$end; $i++){
   <on_reboot>restart</on_reboot>
   <on_crash>restart</on_crash>
   <devices>
-    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <emulator>/usr/bin/kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw'/>
       <source file='$VM_HDA'/>
