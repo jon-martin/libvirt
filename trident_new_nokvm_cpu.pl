@@ -31,12 +31,11 @@ $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
 
 for (my $i=$start; $i<=$end; $i++){
 	my $uuid = $ug->to_string($ug->create());	# Create UUID
-
-#	my $modulo = $i%10;		
+	
 	my $modulo = 1;
 
 	my $xml = " 
-<domain type='kvm' id='1'>
+<domain type='qemu' id='1'>
   <name>microMachine-$i</name>
   <uuid>$uuid</uuid>
   <memory>16384</memory>
@@ -59,7 +58,7 @@ for (my $i=$start; $i<=$end; $i++){
   <on_reboot>restart</on_reboot>
   <on_crash>restart</on_crash>
   <devices>
-    <emulator>/usr/bin/kvm</emulator>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw'/>
       <source file='$VM_HDA'/>

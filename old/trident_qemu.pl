@@ -36,7 +36,7 @@ for (my $i=$start; $i<=$end; $i++){
 	}
 
 	# Check system status
-	system("vmstat 5 2 > vmstat.tmp");		# Run vmstat over 10 seconds, while giving two sets of samples and write to file
+	system("vmstat 3 2 > vmstat.tmp");		# Run vmstat over 10 seconds, while giving two sets of samples and write to file
 
 	sleep(1);					# Short sleep before we open the file
 
@@ -45,6 +45,7 @@ for (my $i=$start; $i<=$end; $i++){
 	my $vmstat = <VMSTAT>;				# Store values
 	chomp($vmstat);					# Format the vmstat data
 	$vmstat =~ s/ +/ /g;
+	$vmstat = trim($vmstat);
 	my @values = split(/ +/,$vmstat);		# Split values into an array
 	close (VMSTAT);	
 
@@ -60,13 +61,14 @@ for (my $i=$start; $i<=$end; $i++){
 		print UUID "Error while creating domain:" . $@->message . "\n";
 	}
 	close (UUID);					# Close uuid.lst
+}
 
-	# CPU idle value
-#	$idleValue = $values[15];			# Retrieve the CPU idle value
-#
-#	if ($idleValue == 0){				# If the CPU idle time is 0, stop
-#		die;
-#	}
+sub trim($)
+{
+	my $string = shift;
+	$string =~ s/^\s+//;
+	$string =~ s/\s+$//;
+	return $string;
 }
 
 sub usage(){
