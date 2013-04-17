@@ -14,8 +14,8 @@ my $ug = new Data::UUID;
 my $idleValue = 100;
 my $serial_out;
 
-my $VM_OUTPUT = "/home/jon/libvirt/old/logs/logfile";
-my $VM_HDA = "/home/jon/libvirt/old/serial_print.hda";
+my $VM_OUTPUT = "/home/jon/libvirt/logs/logfile";
+my $VM_HDA = "/home/jon/libvirt/serial_print.hda";
 
 getopts("$opt_string", \%opt ) or usage();
 
