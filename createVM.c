@@ -6,19 +6,25 @@
 
 int main(int argc, char *argv[])
 {
-    virConnectPtr conn;
+    int start, stop;
+	printf("Number for first machine to be created:");
+	scanf("%d", &start);
+	printf("Number for last machine to be created:");
+	scanf("%d", &stop);
 
-    conn = virConnectOpen("qemu:///system");
-    if (conn == NULL) {
-        fprintf(stderr, "Failed to open connection to qemu:///system\n");
-        return 1;
-    }
+	virConnectPtr conn;
 
-  int i;
+	conn = virConnectOpen("qemu:///system");
+	if (conn == NULL) {
+		fprintf(stderr, "Failed to open connection to qemu:///system\n");
+		return 1;
+	}
 
-  for (i=0;i<100;i++) {
-    char xml[1024];
-    sprintf(xml,
+	int i;
+
+	for (i=start;i<=stop;i++) {
+		char xml[1024];
+		sprintf(xml,
 "<domain type='qemu'> \
  <name>microMachine-%d</name> \
  <memory>16384</memory> \
@@ -42,9 +48,8 @@ int main(int argc, char *argv[])
  </devices> \
 </domain>", i, i);
 
-    virDomainCreateXML(conn,xml,VIR_DOMAIN_NONE);
- }
-
-    virConnectClose(conn);
-    return 0;
+		virDomainCreateXML(conn,xml,VIR_DOMAIN_NONE);
+	}
+	virConnectClose(conn);
+	return 0;
 }
