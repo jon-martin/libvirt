@@ -13,6 +13,8 @@ my $file;
 my $ug = new Data::UUID;
 my $idleValue = 100;
 my $serial_out;
+my @numanodes = ("1,5,9","","","");
+my @cpucores = ("1,5,9","","","");
 
 my $VM_OUTPUT = "/home/jon/libvirt/logs/logfile";
 my $VM_HDA = "/home/jon/libvirt/serial_print.hda";
@@ -30,8 +32,9 @@ $vmm = Sys::Virt->new(uri => $uri); }; if ($@) {
 }
 
 for (my $i=$start; $i<=$end; $i++){
-  my $uuid = $ug->to_string($ug->create());	# Create UUID
+	my $uuid = $ug->to_string($ug->create());	# Create UUID
 	
+	my $modulo = $i%4;
 
 	my $xml = " 
 <domain type='kvm' id='1'>
@@ -40,6 +43,12 @@ for (my $i=$start; $i<=$end; $i++){
   <memory>16384</memory>
   <currentMemory>1</currentMemory>
   <vcpu>1</vcpu>
+  <cputune>
+    <vcpupin vcpu='0' cpuset='$cpucores[$modulo]'/>
+  </cputune>
+  <numatune>
+   <memory mode='strict' nodesets='$numanodes[$modulo]'/>
+  </numatune>
   <os>
     <type arch='i686' machine='pc-1.0'>hvm</type>
     <boot dev='hd'/>
