@@ -1,4 +1,3 @@
-
 /* compile with: gcc -g -Wall "filename.c" -o "filename" -lvirt */
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +41,7 @@ int main(int argc, char *argv[])
    <address type='drive' controller='0' bus='0' unit='0'/> \
   </disk> \
   <serial type='file'> \
-   <source path='/home/ubuntu/ouput%d.log'/> \
+   <source path='/home/ubuntu/output%d.log'/> \
    <target port='1'/> \
   </serial> \
  </devices> \
