@@ -1,0 +1,23 @@
+CPU: AMD64 family15h, speed 2400.06 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+134      46.0481  no-vmlinux               /no-vmlinux
+87       29.8969  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+49       16.8385  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+5         1.7182  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+1         0.3436  libgssapi.so.3.0.0       /usr/lib/x86_64-linux-gnu/libgssapi.so.3.0.0
+1         0.3436  libheimntlm.so.0.1.0     /usr/lib/x86_64-linux-gnu/libheimntlm.so.0.1.0
+1         0.3436  libpthread-2.15.so       pthread_mutex_lock
+1         0.3436  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+1         0.3436  libvirt.so.0.1000.5      doRemoteOpen
+1         0.3436  libvirt.so.0.1000.5      parse_expression
+1         0.3436  libvirt.so.0.1000.5      virConfParse
+1         0.3436  libvirt.so.0.1000.5      virDataTypesInitialize
+1         0.3436  libvirt.so.0.1000.5      virLogStr
+1         0.3436  libvirt.so.0.1000.5      virMutexLock
+1         0.3436  libvirt.so.0.1000.5      virNetClientCallNew
+1         0.3436  libvirt.so.0.1000.5      virObjectLock
+1         0.3436  libvirt.so.0.1000.5      virOnce
+1         0.3436  libvirt.so.0.1000.5      virTimeStringThenRaw
+1         0.3436  libvirt.so.0.1000.5      virVasprintf
+1         0.3436  libvirt.so.0.1000.5      xdr_remote_auth_list_ret

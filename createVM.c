@@ -36,12 +36,12 @@ int main(int argc, char *argv[])
   <emulator>/usr/bin/kvm</emulator> \
   <disk type='file' device='disk'> \
    <driver name='qemu' type='raw'/> \
-   <source file='/home/ubuntu/serial_print.hda'/> \
+   <source file='/home/jon/serial_print.hda'/> \
    <target dev='hda' bus='ide'/> \
    <address type='drive' controller='0' bus='0' unit='0'/> \
   </disk> \
   <serial type='file'> \
-   <source path='/home/ubuntu/output%d.log'/> \
+   <source path='/home/jon/logs/output%d.log'/> \
    <target port='1'/> \
   </serial> \
  </devices> \
