@@ -7,9 +7,6 @@
   <cputune>
     <vcpupin vcpu='0' cpuset='0,4,8,12,16,20'/>
   </cputune>
-  <numatune>
-   <memory mode='strict' nodeset='0'/>
-  </numatune>
   <os>
     <type arch='i686' machine='pc-1.0'>hvm</type>
     <boot dev='hd'/>

@@ -1,0 +1,3 @@
+root      5296 74.0  0.0 342008 13292 pts/2    Sl+  16:16   0:00 qemu-system-x86_64 -m 16 -hda serial_print.hda -name qemuVM-3 -no-kvm -nographic
+root      5300  0.0  0.0   4396   616 pts/2    S+   16:16   0:00 sh -c ps aux | grep qemuVM-3 > PID.file
+root      5302  0.0  0.0   8108   920 pts/2    S+   16:16   0:00 grep qemuVM-3

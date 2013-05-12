@@ -5,13 +5,17 @@
 
 use strict;
 
+my $output = "trident_cgroupstest.csv";
 my $VM_OUTPUT = "/home/jon/libvirt/logs/logfile";
 
-system("cgreate -g cpu,cpuacct,devices,freezer,memory:/qemugroup");
+system("cgreate -g blkio,cpu,cpuacct,devices,freezer,memory,perf_event:/qemugroup");
 
-for(my $i=0; $i<50; $i++){
-  system("nohup qemu-system-x86_64 -m 16 -hda serial_print.hda -name qemuVM-$i -no-kvm -nographic > $VM_OUTPUT$i.log &");
-	system("cgcreate -g cpu,cpuacct,devices,freezer,memory:/qemugroup/qemuVM-$i");
+for(my $i=1; $i<1005; $i++){
+	system("nohup qemu-system-x86_64 -m 16 -hda serial_print.hda -name qemuVM-$i -no-kvm -nographic > $VM_OUTPUT$i.log &");
+#        system("nohup qemu-system-x86_64 -m 16 -hda serial_print.hda -nographic > $VM_OUTPUT$i.log &");
+
+
+	system("cgcreate -g blkio,cpu,cpuacct,devices,freezer,memory,perf_event:/qemugroup/qemuVM-$i");
 
 	#Find PID
 	sleep(1);
@@ -24,24 +28,22 @@ for(my $i=0; $i<50; $i++){
 	close(INFO);			# Close the file
 
 	my @firstline = split(/\s+/,$lines[0]);
-#	print $firstline[1];
+	print $firstline[1];
 
 	my $pid = $firstline[1];
 
-	system("echo $pid > /sys/fs/cgroup/cpu/qemugroup/qemuVM-$i/tasks");
-	system("echo $pid > /sys/fs/cgroup/cpuacct/qemugroup/qemuVM-$i/tasks");
-	system("echo $pid > /sys/fs/cgroup/devices/qemugroup/qemuVM-$i/tasks");
-	system("echo $pid > /sys/fs/cgroup/freezer/qemugroup/qemuVM-$i/tasks");
-	system("echo $pid > /sys/fs/cgroup/memory/qemugroup/qemuVM-$i/tasks");
+	system("cgclassify -g blkio,cpu,cpuacct,devices,freezer,memory,perf_event:/qemugroup/qemuVM-$i $pid");
+	print " - cgroups done\n";
 
         my $check ="";
         while ($check !~ /!/){
                 sleep(1);                                       # Sleep for a while after creating the VM
                 open FILE, "$VM_OUTPUT$i.log";                  # Open the file written by VM's serial output
+		<FILE>;<FILE>;<FILE>;
                 $check = <FILE>;                                # Store the first line written by VM
                 close FILE;                                     # Close file
         }
-
+	print "check done\n";
         # Check system status
         system("vmstat 3 2 > vmstat.tmp");              # Run vmstat over 10 seconds, while giving two sets of samples and write to file
 
@@ -60,7 +62,7 @@ for(my $i=0; $i<50; $i++){
         my $time = time;
 
         # Print results to file
-        open (UUID, ">>$file");                 # Open uuid.lst and append new data
+        open (UUID, ">>$output");                 # Open uuid.lst and append new data
         print "$i $time $check $vmstat\n";      # Print to screen
         print UUID "$i $time $check $vmstat\n"; # Print to file
         if ($@) {                                       # Print extra if error occurs
