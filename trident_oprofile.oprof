@@ -1,0 +1,170 @@
+CPU: AMD64 family15h, speed 2400.25 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               app name                 symbol name
+595121   55.9981  no-vmlinux               qemu-system-x86_64       /no-vmlinux
+162740   15.3131  no-vmlinux               nohup                    /no-vmlinux
+131529   12.3763  no-vmlinux               ps                       /no-vmlinux
+59331     5.5828  no-vmlinux               trident_oprofil          /no-vmlinux
+45474     4.2789  qemu-system-x86_64       qemu-system-x86_64       /usr/bin/qemu-system-x86_64
+12041     1.1330  no-vmlinux               grep                     /no-vmlinux
+10984     1.0335  libc-2.15.so             ps                       /lib/x86_64-linux-gnu/libc-2.15.so
+8963      0.8434  libc-2.15.so             qemu-system-x86_64       /lib/x86_64-linux-gnu/libc-2.15.so
+6434      0.6054  qemu-system-x86_64       nohup                    /usr/bin/qemu-system-x86_64
+3359      0.3161  ld-2.15.so               qemu-system-x86_64       /lib/x86_64-linux-gnu/ld-2.15.so
+2325      0.2188  no-vmlinux               vmstat                   /no-vmlinux
+1823      0.1715  no-vmlinux               sh                       /no-vmlinux
+1709      0.1608  libglib-2.0.so.0.3400.0  qemu-system-x86_64       /lib/x86_64-linux-gnu/libglib-2.0.so.0.3400.0
+1425      0.1341  libprocps.so.0.0.1       ps                       /lib/x86_64-linux-gnu/libprocps.so.0.0.1
+1289      0.1213  no-vmlinux               cgcreate                 /no-vmlinux
+1243      0.1170  libc-2.15.so             nohup                    /lib/x86_64-linux-gnu/libc-2.15.so
+908       0.0854  anon (tgid:14109 range:0x40ee9000-0x412e8fff) qemu-system-x86_64       anon (tgid:14109 range:0x40ee9000-0x412e8fff)
+904       0.0851  anon (tgid:14120 range:0x409b1000-0x40db0fff) qemu-system-x86_64       anon (tgid:14120 range:0x409b1000-0x40db0fff)
+861       0.0810  anon (tgid:14142 range:0x403db000-0x407dafff) qemu-system-x86_64       anon (tgid:14142 range:0x403db000-0x407dafff)
+839       0.0789  anon (tgid:14176 range:0x40016000-0x40415fff) nohup                    anon (tgid:14176 range:0x40016000-0x40415fff)
+837       0.0788  no-vmlinux               cgclassify               /no-vmlinux
+801       0.0754  anon (tgid:14210 range:0x41f71000-0x42370fff) qemu-system-x86_64       anon (tgid:14210 range:0x41f71000-0x42370fff)
+791       0.0744  anon (tgid:14165 range:0x419b2000-0x41db1fff) qemu-system-x86_64       anon (tgid:14165 range:0x419b2000-0x41db1fff)
+786       0.0740  anon (tgid:14187 range:0x40505000-0x40904fff) qemu-system-x86_64       anon (tgid:14187 range:0x40505000-0x40904fff)
+770       0.0725  anon (tgid:14198 range:0x412d5000-0x416d4fff) qemu-system-x86_64       anon (tgid:14198 range:0x412d5000-0x416d4fff)
+746       0.0702  anon (tgid:14131 range:0x41318000-0x41717fff) qemu-system-x86_64       anon (tgid:14131 range:0x41318000-0x41717fff)
+709       0.0667  anon (tgid:14153 range:0x4152c000-0x4192bfff) qemu-system-x86_64       anon (tgid:14153 range:0x4152c000-0x4192bfff)
+441       0.0415  libglib-2.0.so.0.3400.0  nohup                    /lib/x86_64-linux-gnu/libglib-2.0.so.0.3400.0
+441       0.0415  libpthread-2.15.so       qemu-system-x86_64       pthread_mutex_lock
+418       0.0393  ps                       ps                       /bin/ps
+408       0.0384  ld-2.15.so               nohup                    /lib/x86_64-linux-gnu/ld-2.15.so
+309       0.0291  libpthread-2.15.so       qemu-system-x86_64       pthread_cond_wait@@GLIBC_2.3.2
+284       0.0267  librt-2.15.so            qemu-system-x86_64       /lib/x86_64-linux-gnu/librt-2.15.so
+273       0.0257  [vdso] (tgid:14109 range:0x7fff68f88000-0x7fff68f88fff) qemu-system-x86_64       [vdso] (tgid:14109 range:0x7fff68f88000-0x7fff68f88fff)
+272       0.0256  libpthread-2.15.so       qemu-system-x86_64       pthread_mutex_trylock
+242       0.0228  [vdso] (tgid:14120 range:0x7fff2eb40000-0x7fff2eb40fff) qemu-system-x86_64       [vdso] (tgid:14120 range:0x7fff2eb40000-0x7fff2eb40fff)
+216       0.0203  libpthread-2.15.so       qemu-system-x86_64       pthread_mutex_unlock
+201       0.0189  [vdso] (tgid:14131 range:0x7fffcb8b8000-0x7fffcb8b8fff) nohup                    [vdso] (tgid:14131 range:0x7fffcb8b8000-0x7fffcb8b8fff)
+169       0.0159  libpthread-2.15.so       qemu-system-x86_64       pthread_cond_broadcast@@GLIBC_2.3.2
+158       0.0149  no-vmlinux               nohup                    /no-vmlinux
+157       0.0148  libc-2.15.so             cgcreate                 /lib/x86_64-linux-gnu/libc-2.15.so
+137       0.0129  [vdso] (tgid:14153 range:0x7fff49400000-0x7fff49400fff) qemu-system-x86_64       [vdso] (tgid:14153 range:0x7fff49400000-0x7fff49400fff)
+136       0.0128  [vdso] (tgid:14142 range:0x7fffb6d50000-0x7fffb6d50fff) qemu-system-x86_64       [vdso] (tgid:14142 range:0x7fffb6d50000-0x7fffb6d50fff)
+130       0.0122  libperl.so.5.14.2        trident_oprofil          /usr/lib/libperl.so.5.14.2
+129       0.0121  libc-2.15.so             vmstat                   /lib/x86_64-linux-gnu/libc-2.15.so
+129       0.0121  libpthread-2.15.so       qemu-system-x86_64       __read_nocancel
+124       0.0117  anon (tgid:14131 range:0x41318000-0x41717fff) nohup                    anon (tgid:14131 range:0x41318000-0x41717fff)
+124       0.0117  libpthread-2.15.so       qemu-system-x86_64       __pthread_mutex_cond_lock
+117       0.0110  [vdso] (tgid:14165 range:0x7fffa9e00000-0x7fffa9e00fff) qemu-system-x86_64       [vdso] (tgid:14165 range:0x7fffa9e00000-0x7fffa9e00fff)
+116       0.0109  libpthread-2.15.so       nohup                    pthread_mutex_lock
+106       0.0100  ld-2.15.so               sh                       /lib/x86_64-linux-gnu/ld-2.15.so
+105       0.0099  libc-2.15.so             grep                     /lib/x86_64-linux-gnu/libc-2.15.so
+102       0.0096  ld-2.15.so               ps                       /lib/x86_64-linux-gnu/ld-2.15.so
+102       0.0096  libc-2.15.so             cgclassify               /lib/x86_64-linux-gnu/libc-2.15.so
+101       0.0095  [vdso] (tgid:14176 range:0x7fff70200000-0x7fff70200fff) nohup                    [vdso] (tgid:14176 range:0x7fff70200000-0x7fff70200fff)
+85        0.0080  libpthread-2.15.so       qemu-system-x86_64       __pthread_enable_asynccancel
+83        0.0078  [vdso] (tgid:14187 range:0x7fff223d8000-0x7fff223d8fff) qemu-system-x86_64       [vdso] (tgid:14187 range:0x7fff223d8000-0x7fff223d8fff)
+83        0.0078  libpthread-2.15.so       nohup                    pthread_cond_wait@@GLIBC_2.3.2
+82        0.0077  librt-2.15.so            nohup                    /lib/x86_64-linux-gnu/librt-2.15.so
+78        0.0073  anon (tgid:14120 range:0x7fa5c1750000-0x7fa5c1751fff) qemu-system-x86_64       anon (tgid:14120 range:0x7fa5c1750000-0x7fa5c1751fff)
+77        0.0072  libc-2.15.so             trident_oprofil          /lib/x86_64-linux-gnu/libc-2.15.so
+76        0.0072  anon (tgid:14210 range:0x7faf9e420000-0x7faf9e421fff) qemu-system-x86_64       anon (tgid:14210 range:0x7faf9e420000-0x7faf9e421fff)
+71        0.0067  libpthread-2.15.so       qemu-system-x86_64       __pthread_disable_asynccancel
+69        0.0065  grep                     grep                     /bin/grep
+67        0.0063  libc-2.15.so             sh                       /lib/x86_64-linux-gnu/libc-2.15.so
+67        0.0063  libpthread-2.15.so       nohup                    pthread_mutex_unlock
+66        0.0062  ld-2.15.so               cgclassify               /lib/x86_64-linux-gnu/ld-2.15.so
+65        0.0061  ld-2.15.so               cgcreate                 /lib/x86_64-linux-gnu/ld-2.15.so
+65        0.0061  ld-2.15.so               grep                     /lib/x86_64-linux-gnu/ld-2.15.so
+61        0.0057  [vdso] (tgid:14198 range:0x7fffc0118000-0x7fffc0118fff) qemu-system-x86_64       [vdso] (tgid:14198 range:0x7fffc0118000-0x7fffc0118fff)
+59        0.0056  anon (tgid:14109 range:0x7f29fe220000-0x7f29fe221fff) qemu-system-x86_64       anon (tgid:14109 range:0x7f29fe220000-0x7f29fe221fff)
+59        0.0056  anon (tgid:14176 range:0x7fd3a0c78000-0x7fd3a0c79fff) nohup                    anon (tgid:14176 range:0x7fd3a0c78000-0x7fd3a0c79fff)
+58        0.0055  anon (tgid:14187 range:0x7f3272560000-0x7f3272561fff) qemu-system-x86_64       anon (tgid:14187 range:0x7f3272560000-0x7f3272561fff)
+58        0.0055  ld-2.15.so               vmstat                   /lib/x86_64-linux-gnu/ld-2.15.so
+57        0.0054  anon (tgid:14165 range:0x7fa8df630000-0x7fa8df631fff) qemu-system-x86_64       anon (tgid:14165 range:0x7fa8df630000-0x7fa8df631fff)
+51        0.0048  libpthread-2.15.so       nohup                    pthread_mutex_trylock
+48        0.0045  libpthread-2.15.so       nohup                    pthread_cond_broadcast@@GLIBC_2.3.2
+46        0.0043  anon (tgid:14142 range:0x7f8dfb430000-0x7f8dfb431fff) qemu-system-x86_64       anon (tgid:14142 range:0x7f8dfb430000-0x7f8dfb431fff)
+44        0.0041  libpthread-2.15.so       qemu-system-x86_64       read
+42        0.0040  anon (tgid:14131 range:0x7f44929e0000-0x7f44929e1fff) qemu-system-x86_64       anon (tgid:14131 range:0x7f44929e0000-0x7f44929e1fff)
+42        0.0040  libpthread-2.15.so       qemu-system-x86_64       sigaction
+41        0.0039  libpthread-2.15.so       qemu-system-x86_64       __libc_sigaction
+40        0.0038  anon (tgid:14198 range:0x7fd504ff0000-0x7fd504ff1fff) qemu-system-x86_64       anon (tgid:14198 range:0x7fd504ff0000-0x7fd504ff1fff)
+39        0.0037  libpthread-2.15.so       qemu-system-x86_64       __write_nocancel
+34        0.0032  libpthread-2.15.so       qemu-system-x86_64       pthread_self
+33        0.0031  libpthread-2.15.so       nohup                    __read_nocancel
+32        0.0030  [vdso] (tgid:14210 range:0x7fff51b48000-0x7fff51b48fff) qemu-system-x86_64       [vdso] (tgid:14210 range:0x7fff51b48000-0x7fff51b48fff)
+32        0.0030  libpthread-2.15.so       qemu-system-x86_64       __pthread_cleanup_upto
+30        0.0028  anon (tgid:14153 range:0x7fe28d088000-0x7fe28d089fff) qemu-system-x86_64       anon (tgid:14153 range:0x7fe28d088000-0x7fe28d089fff)
+29        0.0027  libpthread-2.15.so       nohup                    __pthread_disable_asynccancel
+29        0.0027  libpthread-2.15.so       nohup                    __pthread_mutex_cond_lock
+25        0.0024  libpthread-2.15.so       nohup                    __pthread_enable_asynccancel
+25        0.0024  libpthread-2.15.so       qemu-system-x86_64       __pthread_mutex_unlock_usercnt
+24        0.0023  libpthread-2.15.so       qemu-system-x86_64       write
+21        0.0020  ld-2.15.so               trident_oprofil          /lib/x86_64-linux-gnu/ld-2.15.so
+17        0.0016  libpthread-2.15.so       qemu-system-x86_64       __lll_unlock_wake
+16        0.0015  libpthread-2.15.so       nohup                    sigaction
+15        0.0014  libpthread-2.15.so       qemu-system-x86_64       __errno_location
+14        0.0013  libpthread-2.15.so       nohup                    pthread_self
+14        0.0013  libpthread-2.15.so       qemu-system-x86_64       __lll_lock_wait
+13        0.0012  libpthread-2.15.so       nohup                    __pthread_cleanup_upto
+12        0.0011  libpthread-2.15.so       nohup                    __write_nocancel
+12        0.0011  libpthread-2.15.so       nohup                    read
+11        0.0010  dash                     sh                       /bin/dash
+10       9.4e-04  libpthread-2.15.so       nohup                    __libc_sigaction
+9        8.5e-04  libprocps.so.0.0.1       vmstat                   /lib/x86_64-linux-gnu/libprocps.so.0.0.1
+8        7.5e-04  libc-2.15.so             nohup                    /lib/x86_64-linux-gnu/libc-2.15.so
+8        7.5e-04  libstdc++.so.6.0.17      qemu-system-x86_64       /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.17
+7        6.6e-04  [vdso] (tgid:14131 range:0x7fffcb8b8000-0x7fffcb8b8fff) qemu-system-x86_64       [vdso] (tgid:14131 range:0x7fffcb8b8000-0x7fffcb8b8fff)
+7        6.6e-04  libcgroup.so.1.0.38      cgcreate                 /lib/libcgroup.so.1.0.38
+6        5.6e-04  anon (tgid:14131 range:0x7f44929e0000-0x7f44929e1fff) nohup                    anon (tgid:14131 range:0x7f44929e0000-0x7f44929e1fff)
+6        5.6e-04  libpthread-2.15.so       nohup                    __pthread_mutex_unlock_usercnt
+5        4.7e-04  ld-2.15.so               nohup                    /lib/x86_64-linux-gnu/ld-2.15.so
+5        4.7e-04  libnss_compat-2.15.so    ps                       /lib/x86_64-linux-gnu/libnss_compat-2.15.so
+5        4.7e-04  libpthread-2.15.so       nohup                    __lll_unlock_wake
+4        3.8e-04  libpthread-2.15.so       qemu-system-x86_64       _L_unlock_544
+3        2.8e-04  cgcreate                 cgcreate                 /usr/bin/cgcreate
+3        2.8e-04  libpthread-2.15.so       nohup                    __errno_location
+3        2.8e-04  libpthread-2.15.so       nohup                    __lll_lock_wait
+3        2.8e-04  nohup                    nohup                    /usr/bin/nohup
+3        2.8e-04  vmstat                   vmstat                   /usr/bin/vmstat
+2        1.9e-04  [vdso] (tgid:14104 range:0x7fff58ce8000-0x7fff58ce8fff) trident_oprofil          [vdso] (tgid:14104 range:0x7fff58ce8000-0x7fff58ce8fff)
+2        1.9e-04  libperl.so.5.14.2        cgclassify               /usr/lib/libperl.so.5.14.2
+2        1.9e-04  libpthread-2.15.so       qemu-system-x86_64       pthread_cond_timedwait@@GLIBC_2.3.2
+2        1.9e-04  libpthread-2.15.so       qemu-system-x86_64       pthread_kill
+2        1.9e-04  libpthread-2.15.so       trident_oprofil          pthread_mutex_lock
+2        1.9e-04  librados.so.2.0.0        qemu-system-x86_64       /usr/lib/librados.so.2.0.0
+1        9.4e-05  cgclassify               cgclassify               /usr/bin/cgclassify
+1        9.4e-05  libcgroup.so.1.0.38      cgclassify               /lib/libcgroup.so.1.0.38
+1        9.4e-05  libcrypt-2.15.so         qemu-system-x86_64       /lib/x86_64-linux-gnu/libcrypt-2.15.so
+1        9.4e-05  libcurl-gnutls.so.4.2.0  nohup                    /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.2.0
+1        9.4e-05  libdl-2.15.so            grep                     /lib/x86_64-linux-gnu/libdl-2.15.so
+1        9.4e-05  libgssapi.so.3.0.0       qemu-system-x86_64       /usr/lib/x86_64-linux-gnu/libgssapi.so.3.0.0
+1        9.4e-05  libhx509.so.5.0.0        qemu-system-x86_64       /usr/lib/x86_64-linux-gnu/libhx509.so.5.0.0
+1        9.4e-05  libkrb5.so.3.3           qemu-system-x86_64       /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+1        9.4e-05  libm-2.15.so             nohup                    /lib/x86_64-linux-gnu/libm-2.15.so
+1        9.4e-05  libm-2.15.so             qemu-system-x86_64       /lib/x86_64-linux-gnu/libm-2.15.so
+1        9.4e-05  libnss3.so               qemu-system-x86_64       /usr/lib/x86_64-linux-gnu/libnss3.so
+1        9.4e-05  libnss_files-2.15.so     ps                       /lib/x86_64-linux-gnu/libnss_files-2.15.so
+1        9.4e-05  libperl.so.5.14.2        cgcreate                 /usr/lib/libperl.so.5.14.2
+1        9.4e-05  libplds4.so              qemu-system-x86_64       /usr/lib/x86_64-linux-gnu/libplds4.so
+1        9.4e-05  libpthread-2.15.so       cgclassify               __pthread_initialize_minimal
+1        9.4e-05  libpthread-2.15.so       cgcreate                 __do_global_dtors_aux
+1        9.4e-05  libpthread-2.15.so       cgcreate                 __libc_sigaction
+1        9.4e-05  libpthread-2.15.so       cgcreate                 _pthread_cleanup_push_defer
+1        9.4e-05  libpthread-2.15.so       cgcreate                 pthread_rwlock_rdlock
+1        9.4e-05  libpthread-2.15.so       nohup                    _pthread_cleanup_push_defer
+1        9.4e-05  libpthread-2.15.so       nohup                    fcntl
+1        9.4e-05  libpthread-2.15.so       nohup                    pthread_cond_timedwait@@GLIBC_2.3.2
+1        9.4e-05  libpthread-2.15.so       nohup                    write
+1        9.4e-05  libpthread-2.15.so       qemu-system-x86_64       __open_nocancel
+1        9.4e-05  libpthread-2.15.so       qemu-system-x86_64       __pthread_initialize_minimal
+1        9.4e-05  libpthread-2.15.so       qemu-system-x86_64       _pthread_cleanup_push_defer
+1        9.4e-05  libpthread-2.15.so       qemu-system-x86_64       close
+1        9.4e-05  libpthread-2.15.so       qemu-system-x86_64       pread
+1        9.4e-05  libpthread-2.15.so       qemu-system-x86_64       pthread_create@@GLIBC_2.2.5
+1        9.4e-05  libpthread-2.15.so       qemu-system-x86_64       pthread_getspecific
+1        9.4e-05  libpthread-2.15.so       qemu-system-x86_64       pthread_once
+1        9.4e-05  libpthread-2.15.so       trident_oprofil          __reclaim_stacks
+1        9.4e-05  libpthread-2.15.so       trident_oprofil          pthread_mutex_unlock
+1        9.4e-05  libpulsecommon-2.1.so    qemu-system-x86_64       /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-2.1.so
+1        9.4e-05  librados.so.2.0.0        nohup                    /usr/lib/librados.so.2.0.0
+1        9.4e-05  libresolv-2.15.so        qemu-system-x86_64       /lib/x86_64-linux-gnu/libresolv-2.15.so
+1        9.4e-05  libtinfo.so.5.9          qemu-system-x86_64       /lib/x86_64-linux-gnu/libtinfo.so.5.9
+1        9.4e-05  libutil-2.15.so          qemu-system-x86_64       /lib/x86_64-linux-gnu/libutil-2.15.so
+1        9.4e-05  libwrap.so.0.7.6         qemu-system-x86_64       /lib/x86_64-linux-gnu/libwrap.so.0.7.6
+1        9.4e-05  nohup                    qemu-system-x86_64       /usr/bin/nohup
