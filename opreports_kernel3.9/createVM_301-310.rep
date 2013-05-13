@@ -1,0 +1,20 @@
+CPU: AMD64 family15h, speed 2399.99 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+164      51.2500  no-vmlinux               /no-vmlinux
+83       25.9375  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+56       17.5000  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+4         1.2500  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+1         0.3125  libpthread-2.15.so       pthread_mutex_lock
+1         0.3125  libpthread-2.15.so       pthread_sigmask
+1         0.3125  libsasl2.so.2.0.25       /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+1         0.3125  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+1         0.3125  libvirt.so.0.1000.5      calc_eclosure_iter
+1         0.3125  libvirt.so.0.1000.5      re_compile_internal
+1         0.3125  libvirt.so.0.1000.5      virAlloc
+1         0.3125  libvirt.so.0.1000.5      virFree
+1         0.3125  libvirt.so.0.1000.5      virMutexLock
+1         0.3125  libvirt.so.0.1000.5      virNetClientIOHandleOutput
+1         0.3125  libvirt.so.0.1000.5      virNetSocketUpdateIOCallback
+1         0.3125  libvirt.so.0.1000.5      virObjectLock
+1         0.3125  libvirt.so.0.1000.5      virObjectRef

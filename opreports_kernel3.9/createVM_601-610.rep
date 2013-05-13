@@ -1,0 +1,27 @@
+CPU: AMD64 family15h, speed 2399.99 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+197      52.6738  no-vmlinux               /no-vmlinux
+93       24.8663  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+54       14.4385  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+7         1.8717  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+4         1.0695  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+1         0.2674  libkrb5support.so.0.1    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+1         0.2674  libpthread-2.15.so       pthread_mutex_lock
+1         0.2674  libpthread-2.15.so       pthread_mutex_unlock
+1         0.2674  librt-2.15.so            /lib/x86_64-linux-gnu/librt-2.15.so
+1         0.2674  libvirt.so.0.1000.5      c_strcasecmp
+1         0.2674  libvirt.so.0.1000.5      doRemoteOpen
+1         0.2674  libvirt.so.0.1000.5      esxRegister
+1         0.2674  libvirt.so.0.1000.5      virConfParse
+1         0.2674  libvirt.so.0.1000.5      virConnectOpen
+1         0.2674  libvirt.so.0.1000.5      virFree
+1         0.2674  libvirt.so.0.1000.5      virLogVMessage
+1         0.2674  libvirt.so.0.1000.5      virMutexLock
+1         0.2674  libvirt.so.0.1000.5      virNetClientIOEventLoopRemoveDone
+1         0.2674  libvirt.so.0.1000.5      virObjectLock
+1         0.2674  libvirt.so.0.1000.5      virRegisterNodeDeviceDriver
+1         0.2674  libvirt.so.0.1000.5      virThreadSelfID
+1         0.2674  libvirt.so.0.1000.5      virTimeFieldsThenRaw
+1         0.2674  libvirt.so.0.1000.5      virTimeStringNowRaw
+1         0.2674  libvirt.so.0.1000.5      xdr_remote_string

@@ -1,0 +1,31 @@
+CPU: AMD64 family15h, speed 2399.99 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+212      50.7177  no-vmlinux               /no-vmlinux
+109      26.0766  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+58       13.8756  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+6         1.4354  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+5         1.1962  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+4         0.9569  [vdso] (tgid:6650 range:0x7fff07fb8000-0x7fff07fb9fff) [vdso] (tgid:6650 range:0x7fff07fb8000-0x7fff07fb9fff)
+2         0.4785  libpthread-2.15.so       pthread_mutex_lock
+2         0.4785  libpthread-2.15.so       pthread_sigmask
+1         0.2392  libk5crypto.so.3.1       /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+1         0.2392  libnl-3.so.200.5.2       /lib/x86_64-linux-gnu/libnl-3.so.200.5.2
+1         0.2392  libpthread-2.15.so       pthread_once
+1         0.2392  librt-2.15.so            /lib/x86_64-linux-gnu/librt-2.15.so
+1         0.2392  libvirt.so.0.1000.5      doRemoteOpen
+1         0.2392  libvirt.so.0.1000.5      parse_expression
+1         0.2392  libvirt.so.0.1000.5      remoteDomainCreateXML
+1         0.2392  libvirt.so.0.1000.5      set_nonblocking_flag
+1         0.2392  libvirt.so.0.1000.5      virCondDestroy
+1         0.2392  libvirt.so.0.1000.5      virLogSetFromEnv
+1         0.2392  libvirt.so.0.1000.5      virLogVMessage
+1         0.2392  libvirt.so.0.1000.5      virNetClientIOEventLoop
+1         0.2392  libvirt.so.0.1000.5      virNetClientIOHandleInput
+1         0.2392  libvirt.so.0.1000.5      virNetClientProgramCall
+1         0.2392  libvirt.so.0.1000.5      virNetClientSendInternal
+1         0.2392  libvirt.so.0.1000.5      virNetMessageDecodeLength
+1         0.2392  libvirt.so.0.1000.5      virNetMessageFree
+1         0.2392  libvirt.so.0.1000.5      virThreadSelfID
+1         0.2392  libvirt.so.0.1000.5      virTimeStringNowRaw
+1         0.2392  libvirt.so.0.1000.5      xdr_virNetMessageHeader

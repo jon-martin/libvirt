@@ -1,0 +1,27 @@
+CPU: AMD64 family15h, speed 2399.99 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+182      48.6631  no-vmlinux               /no-vmlinux
+102      27.2727  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+62       16.5775  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+6         1.6043  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+2         0.5348  libpthread-2.15.so       pthread_mutex_lock
+2         0.5348  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+1         0.2674  createVM_1001-1010       main
+1         0.2674  libgnutls.so.26.21.8     /usr/lib/x86_64-linux-gnu/libgnutls.so.26.21.8
+1         0.2674  libhx509.so.5.0.0        /usr/lib/x86_64-linux-gnu/libhx509.so.5.0.0
+1         0.2674  libpthread-2.15.so       pthread_mutex_init
+1         0.2674  librt-2.15.so            /lib/x86_64-linux-gnu/librt-2.15.so
+1         0.2674  libvirt.so.0.1000.5      do_open
+1         0.2674  libvirt.so.0.1000.5      preorder
+1         0.2674  libvirt.so.0.1000.5      vboxRegister
+1         0.2674  libvirt.so.0.1000.5      virConfParse
+1         0.2674  libvirt.so.0.1000.5      virLogMessage
+1         0.2674  libvirt.so.0.1000.5      virLogVMessage
+1         0.2674  libvirt.so.0.1000.5      virNetClientSendInternal
+1         0.2674  libvirt.so.0.1000.5      virNetMessageDecodeHeader
+1         0.2674  libvirt.so.0.1000.5      virNetMessageDecodePayload
+1         0.2674  libvirt.so.0.1000.5      virNetSocketWrite
+1         0.2674  libvirt.so.0.1000.5      virObjectIsClass
+1         0.2674  libvirt.so.0.1000.5      virResetError
+1         0.2674  libvirt.so.0.1000.5      virThreadLocalGet

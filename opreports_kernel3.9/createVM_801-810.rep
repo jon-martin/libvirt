@@ -1,0 +1,28 @@
+CPU: AMD64 family15h, speed 2399.99 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+231      53.1034  no-vmlinux               /no-vmlinux
+117      26.8966  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+57       13.1034  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+4         0.9195  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+3         0.6897  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+2         0.4598  [vdso] (tgid:6237 range:0x7fff43a00000-0x7fff43a01fff) [vdso] (tgid:6237 range:0x7fff43a00000-0x7fff43a01fff)
+2         0.4598  libvirt.so.0.1000.5      virClassIsDerivedFrom
+2         0.4598  libvirt.so.0.1000.5      virNetClientIOEventLoop
+1         0.2299  libgnutls.so.26.21.8     /usr/lib/x86_64-linux-gnu/libgnutls.so.26.21.8
+1         0.2299  libpthread-2.15.so       pthread_getspecific
+1         0.2299  libpthread-2.15.so       pthread_mutex_lock
+1         0.2299  libpthread-2.15.so       pthread_mutex_unlock
+1         0.2299  libvirt.so.0.1000.5      parse_expression
+1         0.2299  libvirt.so.0.1000.5      re_node_set_merge
+1         0.2299  libvirt.so.0.1000.5      virAsprintf
+1         0.2299  libvirt.so.0.1000.5      virLogMessage
+1         0.2299  libvirt.so.0.1000.5      virLogStr
+1         0.2299  libvirt.so.0.1000.5      virLogVMessage
+1         0.2299  libvirt.so.0.1000.5      virNetClientIOHandleInput
+1         0.2299  libvirt.so.0.1000.5      virNetMessageDecodeHeader
+1         0.2299  libvirt.so.0.1000.5      virObjectLock
+1         0.2299  libvirt.so.0.1000.5      virOnce
+1         0.2299  libvirt.so.0.1000.5      virThreadLocalGet
+1         0.2299  libvirt.so.0.1000.5      virTimeStringNowRaw
+1         0.2299  libxml2.so.2.8.0         /usr/lib/x86_64-linux-gnu/libxml2.so.2.8.0

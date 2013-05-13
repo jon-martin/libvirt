@@ -1,0 +1,23 @@
+CPU: AMD64 family15h, speed 2399.99 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+198      53.0831  no-vmlinux               /no-vmlinux
+93       24.9330  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+56       15.0134  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+7         1.8767  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+2         0.5362  libpthread-2.15.so       pthread_mutex_lock
+2         0.5362  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+2         0.5362  libvirt.so.0.1000.5      virFree
+1         0.2681  libgnutls.so.26.21.8     /usr/lib/x86_64-linux-gnu/libgnutls.so.26.21.8
+1         0.2681  libkrb5.so.26.0.0        /usr/lib/x86_64-linux-gnu/libkrb5.so.26.0.0
+1         0.2681  libpthread-2.15.so       __do_global_ctors_aux
+1         0.2681  libpthread-2.15.so       pthread_cond_destroy@@GLIBC_2.3.2
+1         0.2681  libpthread-2.15.so       pthread_mutex_unlock
+1         0.2681  libpthread-2.15.so       pthread_sigmask
+1         0.2681  librt-2.15.so            /lib/x86_64-linux-gnu/librt-2.15.so
+1         0.2681  libvirt.so.0.1000.5      peek_token_bracket
+1         0.2681  libvirt.so.0.1000.5      virAsprintf
+1         0.2681  libvirt.so.0.1000.5      virLastErrorObject
+1         0.2681  libvirt.so.0.1000.5      virLogInitialize
+1         0.2681  libvirt.so.0.1000.5      virNetSocketHasCachedData
+1         0.2681  libvirt.so.0.1000.5      virObjectLock

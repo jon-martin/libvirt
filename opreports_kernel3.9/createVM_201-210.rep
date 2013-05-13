@@ -1,0 +1,29 @@
+CPU: AMD64 family15h, speed 2399.99 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+155      46.8278  no-vmlinux               /no-vmlinux
+94       28.3988  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+52       15.7100  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+7         2.1148  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+2         0.6042  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+1         0.3021  [vdso] (tgid:3754 range:0x7fff7abb0000-0x7fff7abb1fff) [vdso] (tgid:3754 range:0x7fff7abb0000-0x7fff7abb1fff)
+1         0.3021  libgnutls.so.26.21.8     /usr/lib/x86_64-linux-gnu/libgnutls.so.26.21.8
+1         0.3021  libpthread-2.15.so       pthread_sigmask
+1         0.3021  libvirt.so.0.1000.5      get_nonnull_domain
+1         0.3021  libvirt.so.0.1000.5      parse_expression
+1         0.3021  libvirt.so.0.1000.5      re_node_set_alloc
+1         0.3021  libvirt.so.0.1000.5      virClassIsDerivedFrom
+1         0.3021  libvirt.so.0.1000.5      virConnectOpen
+1         0.3021  libvirt.so.0.1000.5      virKeepAliveCheckMessage
+1         0.3021  libvirt.so.0.1000.5      virLogInitialize
+1         0.3021  libvirt.so.0.1000.5      virLogStr
+1         0.3021  libvirt.so.0.1000.5      virMutexLock
+1         0.3021  libvirt.so.0.1000.5      virNetClientIOEventLoop
+1         0.3021  libvirt.so.0.1000.5      virNetClientIOEventLoopPassTheBuck
+1         0.3021  libvirt.so.0.1000.5      virNetClientIOUpdateCallback.part.3
+1         0.3021  libvirt.so.0.1000.5      virNetClientSendWithReply
+1         0.3021  libvirt.so.0.1000.5      virNetMessageDecodePayload
+1         0.3021  libvirt.so.0.1000.5      virObjectUnlock
+1         0.3021  libvirt.so.0.1000.5      virRegisterStateDriver
+1         0.3021  libvirt.so.0.1000.5      virTimeFieldsThenRaw
+1         0.3021  libvirt.so.0.1000.5      virTimeStringNowRaw

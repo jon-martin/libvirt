@@ -1,0 +1,24 @@
+CPU: AMD64 family15h, speed 2399.99 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (CPU Clocks not Halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+159      52.3026  no-vmlinux               /no-vmlinux
+80       26.3158  ld-2.15.so               /lib/x86_64-linux-gnu/ld-2.15.so
+40       13.1579  libc-2.15.so             /lib/x86_64-linux-gnu/libc-2.15.so
+5         1.6447  libgcrypt.so.11.7.0      /lib/x86_64-linux-gnu/libgcrypt.so.11.7.0
+3         0.9868  libtasn1.so.3.1.16       /usr/lib/x86_64-linux-gnu/libtasn1.so.3.1.16
+2         0.6579  libvirt.so.0.1000.5      virTimeFieldsThenRaw
+1         0.3289  libpthread-2.15.so       pthread_cond_init@@GLIBC_2.3.2
+1         0.3289  libpthread-2.15.so       pthread_mutex_lock
+1         0.3289  libvirt.so.0.1000.5      re_node_set_insert_last
+1         0.3289  libvirt.so.0.1000.5      virAllocVar
+1         0.3289  libvirt.so.0.1000.5      virAsprintf
+1         0.3289  libvirt.so.0.1000.5      virClassIsDerivedFrom
+1         0.3289  libvirt.so.0.1000.5      virFree
+1         0.3289  libvirt.so.0.1000.5      virGetDomain
+1         0.3289  libvirt.so.0.1000.5      virKeepAliveCheckMessage
+1         0.3289  libvirt.so.0.1000.5      virLogMessage
+1         0.3289  libvirt.so.0.1000.5      virLogStr
+1         0.3289  libvirt.so.0.1000.5      virLogVMessage
+1         0.3289  libvirt.so.0.1000.5      virNetClientCallNew
+1         0.3289  libvirt.so.0.1000.5      virNetClientIOEventLoop
+1         0.3289  libvirt.so.0.1000.5      virTimeStringThenRaw
